@@ -19,6 +19,12 @@ inputs:
       Reporter of reviewdog command [github-pr-check,github-pr-review].
       Default is github-pr-check.
     default: 'github-pr-check'
+  gem_install_args:
+    description: |
+      List of gems passed to "gem install". Default is "rubocop" which installs latest version of rubocop.
+      To install RuboCop plugins: "rubocop rubocop-rails rubocop-performance"
+      To install a specific version: "rubocop:0.79.0"
+    default: 'rubocop'
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -28,6 +34,7 @@ runs:
     - ${{ inputs.tool_name }}
     - ${{ inputs.level }}
     - ${{ inputs.reporter }}
+    - ${{ inputs.gem_install_args }}
 branding:
   icon: 'check-circle'
   color: 'red'

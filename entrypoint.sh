@@ -2,6 +2,9 @@
 
 cd "$GITHUB_WORKSPACE"
 
+gem install ${INPUT_GEM_INSTALL_ARGS}
+rubocop --verbose-version
+
 export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
 rubocop ${INPUT_RUBOCOP_FLAGS} \
